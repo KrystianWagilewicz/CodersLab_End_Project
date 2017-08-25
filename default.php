@@ -16,6 +16,6 @@
 		<script type="text/JavaScript" src="js/app.js"></script>
 </head>
 <body>
-  <h2>DEFAULT PAGE CONTENT</h2>
+  <h2>ACCES DENIED !!!</h2>
 </body>
 </html>
