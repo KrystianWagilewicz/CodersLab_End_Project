@@ -14,7 +14,7 @@ if ($connect->connect_errno!=0) {
 } else {
     $id = $_SESSION['id'];
 
-    $filePath = "/home/kris/Workspace/Projekt_koncowy/user_data/$id/";
+    $filePath = "/home/kris/Workspace/CodersLab_End_Project/user_data/$id/";
 
     function createFolderIfNotExists ($filePath){
       if (is_dir($filePath) == false)

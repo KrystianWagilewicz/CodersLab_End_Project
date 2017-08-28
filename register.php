@@ -21,7 +21,7 @@
 </html>
 
 <?php
-include_once 'connection.php';
+require_once 'connection.php';
 
 if ($connect->connect_errno!=0){
   echo "Error: ".$connect->connect_errno;
@@ -49,7 +49,7 @@ if ($connect->connect_errno!=0){
               isset($pass2) && !empty($pass2) ) {
 
                 $sql = "INSERT INTO `user_account` (`name`, `surname`, `email`, `password`)
-                  VALUES ('".$name."', '".$surname."', '".$mail."', '".md5($pass1)."');";
+                  VALUES ('".$name."', '".$surname."', '".$mail."', '".$pass1."');";
 
                 $result = mysqli_query($connect, $sql);
                 echo 'Account created !!!';

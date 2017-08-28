@@ -38,8 +38,6 @@ if ($connect->connect_errno!=0) {
  <head>
   <title>serch</title>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/JavaScript" src="js/app.js"></script>
  </head>
  <body>
   <div id="notice_info">
@@ -48,7 +46,7 @@ if ($connect->connect_errno!=0) {
       <p>Notice number: <?= $id ?></p>
       <p>Title: <?= $title ?></p>
       <p>Details: <?= $description ?></p>
-      <img src="/Projekt_koncowy/user_data/<?= $user_folder ?>/<?= $foto ?>" height="250" width="250">
+      <img src="/CodersLab_End_Project/user_data/<?= $user_folder ?>/<?= $foto ?>" height="250" width="250">
       <p>Contact: <?= $name ?> <?= $surname ?></p>
       <p>E-mail: <a href="mailto:<?= $email ?>?subject=Want%20to%20buy&body=I%20want%20to%20buy%20your%20item!">Send mail!</a></p>
 

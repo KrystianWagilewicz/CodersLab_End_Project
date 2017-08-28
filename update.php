@@ -38,7 +38,7 @@ session_start();
 
           $user_name = $_POST['name'];
           $surname = $_POST['surname'];
-					$user_email = $_POST['email'];
+	  		  $user_email = $_POST['email'];
           $password = $_POST['password'];
 
           $sql = "UPDATE user_account SET name = '$user_name' , surname = '$surname' , email = '$user_email' , password = '$password' WHERE id = '$id'";
@@ -63,7 +63,7 @@ session_start();
         Name: <br /> <input type="text" name="name" value="<?php echo $row['name'] ?>"  /> <br />
         Surname: <br /> <input type="text" name="surname" value="<?php echo $row['surname'] ?>"  /> <br />
 				E-mail: <br /> <input type="text" name="email" style="width:210px;" value="<?php echo $row['email'] ?>"  /> <br />
-        Password: <br /> <input type="password" name="password" value="<?php echo $row['password'] ?>" /> <br /><br />
+        Password: <br /> <input type="password" name="password" placeholder="password" /> <br /><br />
         <input type="submit" name="submit" value="Update profile" /><br />
     </form><br />
   </div>
