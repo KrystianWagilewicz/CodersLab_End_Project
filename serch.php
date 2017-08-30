@@ -19,7 +19,7 @@
     $result = mysqli_query($connect, $sql_category);
 
     while($row = mysqli_fetch_array($result)){
-     //ta kropka przed = musi być
+     //this "." must be here for script working
      $category .= '<option value= "'.$row["category"].'" > '.$row["category"].' </option>';
     }
     ?>
@@ -39,10 +39,6 @@
     <?php
 
     require_once "connection.php";
-
-    if ($connect->connect_errno!=0) {
-      echo "Error: ".$connect->connect_errno;
-    } else {
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
 
@@ -78,8 +74,8 @@
             }
           }
         }
-    }
     ?>
+
   </div>
   <div id="view_form">
     <iframe height="560px" width="405px" frameborder="1" src="" name="iframe_b"></iframe>

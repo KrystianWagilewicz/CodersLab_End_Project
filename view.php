@@ -9,18 +9,14 @@ if (!isset($_SESSION['logged'])){
 
 require_once 'connection.php';
 
-if ($connect->connect_errno!=0) {
-  echo "Error: ".$connect->connect_errno;
-} else {
-
   $sql = 'SELECT * FROM notice WHERE id=' .$_GET['id'];
 
-  //wyniki zapytania
+  //sql result
   $result = mysqli_query($connect, $sql);
-  //teraz zwroci tablice asocjacyjna i mozna odniesc sie do nazw kolumn
+  //associative table so now we can use table column names
   $notice = $result->fetch_assoc();
 
-  //zapisz do poniższych zmiennych odpowiednie dane z bazy, formularz zostanie nimi automatycznie wypełniony
+  //place data from associative table to selected variable
   $id = $notice['id'];
   $title = $notice['title'];
   $description = $notice['description'];
@@ -30,7 +26,6 @@ if ($connect->connect_errno!=0) {
   $surname = $notice['surname'];
   $email = $notice['email'];
 
-}
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +41,7 @@ if ($connect->connect_errno!=0) {
       <p>Notice number: <?= $id ?></p>
       <p>Title: <?= $title ?></p>
       <p>Details: <?= $description ?></p>
-      <img src="/CodersLab_End_Project/user_data/<?= $user_folder ?>/<?= $foto ?>" height="250" width="250">
+      <img src="/Workspace/CodersLab_End_Project/user_data/<?= $user_folder ?>/<?= $foto ?>" height="250" width="250">
       <p>Contact: <?= $name ?> <?= $surname ?></p>
       <p>E-mail: <a href="mailto:<?= $email ?>?subject=Want%20to%20buy&body=I%20want%20to%20buy%20your%20item!">Send mail!</a></p>
 

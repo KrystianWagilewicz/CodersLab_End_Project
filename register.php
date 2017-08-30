@@ -23,10 +23,6 @@
 <?php
 require_once 'connection.php';
 
-if ($connect->connect_errno!=0){
-  echo "Error: ".$connect->connect_errno;
-} else {
-
   if($_SERVER['REQUEST_METHOD']=='POST'){
 
     if(isset($_POST['submit'])){
@@ -65,5 +61,4 @@ if ($connect->connect_errno!=0){
      }
    }
  }
-}
 $connect->close();

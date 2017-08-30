@@ -9,11 +9,11 @@ if(isset($_POST["action"])){
     $query = "SELECT subcategory FROM item_category WHERE category = '".$_POST["query"]."' GROUP BY subcategory";
     $result = mysqli_query($connect, $query);
 
-    //ta kropka przed = musi być
+    //this "." must be here for script working
     $output .= '<option value="">Select Subcategory</option>';
 
     while($row = mysqli_fetch_array($result)){
-      //ta kropka przed = musi być
+      //this "." must be here for script working
       $output .= '<option value="'.$row["subcategory"].'">'.$row["subcategory"].'</option>';
     }
   }

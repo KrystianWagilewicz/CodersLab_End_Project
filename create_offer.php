@@ -8,21 +8,7 @@ if (!isset($_SESSION['logged'])){
 }
 
 require_once "connection.php";
-
-if ($connect->connect_errno!=0) {
-  echo "Error: ".$connect->connect_errno;
-} else {
-    $id = $_SESSION['id'];
-
-    $filePath = "/home/kris/Workspace/CodersLab_End_Project/user_data/$id/";
-
-    function createFolderIfNotExists ($filePath){
-      if (is_dir($filePath) == false)
-      {
-          mkdir ($filePath, 0777, true);
-          chmod($filePath, 0777);
-      }
-    }
+require_once "create_folder.php";
 
     $serch_sql = "SELECT * FROM user_account WHERE id = '$id'";
     $result = mysqli_query($connect, $serch_sql);
@@ -56,9 +42,10 @@ if ($connect->connect_errno!=0) {
               $result = mysqli_query($connect, $sql);
               echo 'Notice created !!!';
 
+              //use function for folder creating
               createFolderIfNotExists($filePath);
 
-              //przenosi plik z folderu tymczasowego (tmp_name) do nowej ściezki ze zmiennej $uploadfile
+              //move file from temp folder to new one
               if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadfile)) {
                 echo("File was successfully uploaded.\n");
               } else {
@@ -69,7 +56,6 @@ if ($connect->connect_errno!=0) {
         }
       }
     }
-}
 
 $category = '';
 
@@ -77,7 +63,7 @@ $sql_category = "SELECT category FROM item_category GROUP BY category ORDER BY c
 $result = mysqli_query($connect, $sql_category);
 
 while($row = mysqli_fetch_array($result)){
- //ta kropka przed = musi być
+ //this "." must be here for script working
  $category .= '<option value= "'.$row["category"].'" > '.$row["category"].' </option>';
 }
 

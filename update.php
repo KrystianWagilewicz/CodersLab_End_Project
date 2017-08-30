@@ -22,12 +22,6 @@ session_start();
 
     require_once "connection.php";
 
-    if ($connect->connect_errno!=0)
-    {
-      echo "Error: ".$connect->connect_errno;
-    }
-    else
-    {
     $id = $_SESSION['id'];
     $serch_sql = "SELECT * FROM user_account WHERE id = '$id'";
     $result = mysqli_query($connect, $serch_sql);
@@ -46,8 +40,8 @@ session_start();
           $result1 = mysqli_query($connect, $sql);
 
           if ($result1) {
-						//odświeża strone po 2 sekundach by zmiany były odrazu widoczne
             echo "Record updated successfully wait for data reload !";
+						//refresh page for data reload on page view
 						echo "<meta http-equiv='refresh' content='2'>";
           } else {
             echo "Error updating record: " . mysqli_error($connect);
@@ -55,7 +49,6 @@ session_start();
           mysqli_close($connect);
         }
 			}
-    }
     ?>
 
     <form action="" method="post">
