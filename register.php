@@ -44,8 +44,11 @@ require_once 'connection.php';
               isset($mail) && !empty($mail) && isset($pass1) && !empty($pass1) &&
               isset($pass2) && !empty($pass2) ) {
 
+                //cost controls the hash speed of password_hash function in sql, it depend of server resources
+                $options = ['cost' => 12];
+
                 $sql = "INSERT INTO `user_account` (`name`, `surname`, `email`, `password`)
-                  VALUES ('".$name."', '".$surname."', '".$mail."', '".$pass1."');";
+                  VALUES ('".$name."', '".$surname."', '".$mail."', '".password_hash($pass1, PASSWORD_DEFAULT, $options)."');";
 
                 $result = mysqli_query($connect, $sql);
                 echo 'Account created !!!';
