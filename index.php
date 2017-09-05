@@ -6,8 +6,6 @@
 	if (isset($_SESSION['logged']))
 	{
     $session_status = $_SESSION['logged'];
-		// header('Location: index.php');
-		// exit();
 	}
 ?>
 
